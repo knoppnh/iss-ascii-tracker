@@ -67,4 +67,4 @@ while True:
             x+=1
     #print(lat)
     #print(lon)
-    time.sleep(30)
+    time.sleep(45)
