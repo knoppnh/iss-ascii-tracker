@@ -68,8 +68,6 @@ while True:
                 else:
                     print(row)
                 x+=1
-    else:
-        print("no move")
     lattest = latplot
     lontest = lonplot
     #print(lat)
