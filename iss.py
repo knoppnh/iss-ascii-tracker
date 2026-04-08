@@ -58,7 +58,7 @@ while True:
             if x == latplot:
                 newrow = list(row)
                 iss="\033[32m#\033[0m"
-                newrow[lonplot] = iss
+                newrow[int(lonplot)] = iss
                 #replacement= newrow[:int(lonplot)] + iss + newrow[int(lonplot)+1:]
                 replacement = "".join(newrow)
                 print(replacement)
