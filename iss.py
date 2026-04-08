@@ -46,10 +46,10 @@ while True:
     if latplot <=0:
         latplot=-latplot+10
     else:
-        latplot = round(180/19,0)-latplot
+        latplot = round(180/19,0)-latplot-1
     lonplot = int(round(lon/(360/63)))
     if lonplot >= 0:
-        lonplot = int(round(lonplot + 64/2,0))
+        lonplot = int(round(lonplot + 64/2-1,0))
     else:
         lonplot = 32+int(lonplot)
     print(latplot, " ", lonplot)
