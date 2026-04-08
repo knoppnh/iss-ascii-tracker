@@ -5,6 +5,8 @@ import urllib.error
 
 latplot=int(1)
 lonplot=int(1)
+lontest=int(-1)
+lattest=int(-1)
 row=[]
 
 row.append("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣄⣠⣀⡀⣀⣠⣤⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
@@ -42,29 +44,34 @@ while True:
     lat = float(lat)
     lon = float(lon)
     latplot = int(round(lat/(180/19)))
-    print(lonplot)
     if latplot <=0:
-        latplot=-latplot+10
+        latplot=int(-latplot+10)
     else:
-        latplot = round(180/19,0)-latplot-1
+        latplot = int(round(180/19,0)-latplot+1)
     lonplot = int(round(lon/(360/63)))
     if lonplot >= 0:
         lonplot = int(round(lonplot + 64/2-1,0))
     else:
         lonplot = 32+int(lonplot)
-    print(latplot, " ", lonplot)
-    os.system('cls' if os.name == 'nt' else 'clear')
-    for row in rows:
-            if x == latplot:
-                newrow = list(row)
-                iss="\033[32m#\033[0m"
-                newrow[int(lonplot)] = iss
-                #replacement= newrow[:int(lonplot)] + iss + newrow[int(lonplot)+1:]
-                replacement = "".join(newrow)
-                print(replacement)
-            else:
-                print(row)
-            x+=1
+    #print(latplot, " ", lonplot)
+    #print(lattest, " ", lontest)
+    if lonplot != lontest or latplot != lattest:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        for row in rows:
+                if x == latplot:
+                    newrow = list(row)
+                    iss="\033[32m#\033[0m"
+                    newrow[int(lonplot)] = iss
+                    #replacement= newrow[:int(lonplot)] + iss + newrow[int(lonplot)+1:]
+                    replacement = "".join(newrow)
+                    print(replacement)
+                else:
+                    print(row)
+                x+=1
+    else:
+        print("no move")
+    lattest = latplot
+    lontest = lonplot
     #print(lat)
     #print(lon)
     time.sleep(45)
